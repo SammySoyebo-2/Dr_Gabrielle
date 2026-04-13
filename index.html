@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabrielle Barnett Soyebo, MD Candidate</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #82405a;   /*  mauve rose  */
+    --navy-light: #7A5040;   /* medium camel                 */
+    --teal:       #C08A8A;   /* dusty rose / rose quartz     */
+    --teal-light: #D4AAAA;   /* soft blush                   */
+    --gold:       #C8973A;   /* warm gold (unchanged)        */
+    --white:      #ffffff;
+    --off-white:  #FDF8EF;   /* warm cream                   */
+    --gray-100:   #FBF0E6;   /* very light peach             */
+    --gray-300:   #E8C9B0;   /* peach-camel border           */
+    --gray-500:   #9A7860;   /* warm muted camel             */
+    --gray-700:   #6B4F3A;   /* warm brown body text         */
+    --gray-900:   #3D2B1F;   /* darkest warm tone            */
+    --sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    --serif: Georgia, 'Times New Roman', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--gray-900);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: var(--navy);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .nav-cross {
+    width: 28px; height: 28px;
+    position: relative; flex-shrink: 0;
+  }
+
+  .nav-cross::before,
+  .nav-cross::after {
+    content: ''; position: absolute;
+    background: var(--gold); border-radius: 2px;
+  }
+
+  .nav-cross::before { width: 6px; height: 28px; left: 11px; top: 0; }
+  .nav-cross::after  { width: 28px; height: 6px; left: 0; top: 11px; }
+
+  .nav-name {
+    font-size: 15px; font-weight: 700; color: var(--white);
+    letter-spacing: 0.3px; line-height: 1.2;
+  }
+
+  .nav-credential {
+    font-size: 11px; color: rgba(255,255,255,0.65);
+    font-weight: 400; letter-spacing: 0.5px;
+  }
+
+  nav ul {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  nav ul a {
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.78);
+    text-decoration: none; letter-spacing: 0.3px;
+    transition: color 0.2s;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  nav ul a:hover {
+    color: var(--white);
+    border-bottom-color: var(--gold);
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 100px 2rem 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content {
+    text-align: left;
+  }
+
+  .hero-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    max-width: 460px;
+    height: 580px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
+    border: 3px solid var(--gold);
+    display: block;
+  }
+
+  /* Subtle warm-grid overlay */
+  .hero-bg-lines {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.05;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.5) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.5) 60px);
+  }
+
+  /* Soft pink gradient glow */
+  #hero::after {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(192,138,138,0.18) 0%, transparent 70%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 18px; border-radius: 2px;
+    background: var(--gold); color: var(--navy);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.7s ease 0.2s forwards;
+    position: relative; z-index: 1;
+  }
+
+  #hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 400; color: var(--off-white);
+    line-height: 1.1; letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.7s ease 0.4s forwards;
+    position: relative; z-index: 1;
+  }
+
+  #hero h1 em {
+    font-style: normal; color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: rgba(253,248,239,0.68);
+    max-width: 600px; font-weight: 300;
+    margin-bottom: 2.5rem; line-height: 1.6;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.7s ease 0.6s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem; justify-content: flex-start;
+    margin-bottom: 2.5rem; flex-wrap: wrap;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.7s ease 0.8s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .hero-stat-num {
+    font-size: 36px; font-weight: 700; color: var(--gold);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 12px; color: rgba(253,248,239,0.5);
+    text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.7s ease 1s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .btn {
+    padding: 13px 30px; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.5px; text-decoration: none;
+    border-radius: 3px; transition: all 0.2s; cursor: pointer; border: none;
+    display: inline-block;
+  }
+
+  .btn-primary { background: var(--gold); color: var(--navy); }
+  .btn-primary:hover { background: #B88430; }
+
+  .btn-outline {
+    background: transparent; color: var(--off-white);
+    border: 2px solid rgba(253,248,239,0.35);
+  }
+  .btn-outline:hover { border-color: var(--off-white); background: rgba(253,248,239,0.07); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: 0; animation: fadeUp 0.7s ease 1.4s forwards;
+    z-index: 1;
+  }
+
+  .scroll-indicator span {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(253,248,239,0.38);
+  }
+
+  .scroll-line {
+    width: 1px; height: 40px; background: rgba(253,248,239,0.2);
+    position: relative; overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: ''; position: absolute; top: -100%; left: 0;
+    width: 1px; height: 100%; background: var(--gold);
+    animation: scrollDrop 1.8s ease infinite;
+  }
+
+  /* MISSION STRIP */
+  #mission {
+    background: linear-gradient(135deg, #D4A0A0 0%, #C49090 100%);
+    padding: 60px 2rem;
+    text-align: center;
+  }
+
+  #mission blockquote {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.5vw, 26px);
+    color: var(--white); font-weight: 400;
+    line-height: 1.6; max-width: 800px; margin: 0 auto;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(92,61,46,0.25);
+  }
+
+  #mission cite {
+    display: block; margin-top: 1rem;
+    font-size: 13px; color: rgba(255,255,255,0.72);
+    font-style: normal; letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* SECTION LAYOUT */
+  .section-wrap {
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--teal);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400; color: var(--navy);
+    line-height: 1.15; margin-bottom: 0.75rem;
+  }
+
+  .section-intro {
+    font-size: 17px; color: var(--gray-500);
+    max-width: 600px; line-height: 1.7; margin-bottom: 3.5rem;
+  }
+
+  .section-rule {
+    width: 48px; height: 3px; background: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ABOUT */
+  #about {
+    padding: 100px 2rem;
+    background: var(--white);
+  }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  .about-text p {
+    font-size: 16px; color: var(--gray-700);
+    line-height: 1.8; margin-bottom: 1.2rem;
+  }
+
+  .about-text p strong { color: var(--navy); font-weight: 600; }
+
+  .about-pillars { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .pillar {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    opacity: 0; transform: translateX(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .pillar.visible { opacity: 1; transform: translateX(0); }
+
+  .pillar-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--navy); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .pillar-icon svg { width: 20px; height: 20px; fill: var(--gold); }
+
+  .pillar h3 {
+    font-size: 15px; font-weight: 700; color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .pillar p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+
+  /* CLINICAL */
+  #clinical {
+    background: var(--gray-100);
+    padding: 100px 2rem;
+  }
+
+  .rotations-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px; background: var(--gray-300);
+    border: 1.5px solid var(--gray-300);
+    border-radius: 4px; overflow: hidden;
+    margin-bottom: 3rem;
+  }
+
+  .rotation-card {
+    background: var(--white); padding: 1.8rem 1.5rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .rotation-card.visible { opacity: 1; transform: translateY(0); }
+  .rotation-card:hover { background: var(--off-white); }
+
+  .rotation-specialty {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem;
+  }
+
+  .rotation-title {
+    font-size: 16px; font-weight: 700; color: var(--navy);
+    margin-bottom: 0.5rem; line-height: 1.3;
+  }
+
+  .rotation-desc {
+    font-size: 13px; color: var(--gray-500); line-height: 1.5;
+  }
+
+  .rotation-badge {
+    display: inline-block; margin-top: 0.8rem;
+    padding: 3px 10px; border-radius: 2px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(192,138,138,0.14); color: var(--teal);
+  }
+
+  /* RESEARCH */
+  #research {
+    background: var(--white);
+    padding: 100px 2rem;
+  }
+
+  .research-timeline {
+    max-width: 800px; margin: 0 auto;
+    position: relative;
+  }
+
+  .research-timeline::before {
+    content: ''; position: absolute;
+    left: 18px; top: 0; bottom: 0; width: 2px;
+    background: var(--gray-300);
+  }
+
+  .timeline-item {
+    display: flex; gap: 2rem; padding: 0 0 3rem 0;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .timeline-item.visible { opacity: 1; transform: translateY(0); }
+
+  .timeline-dot {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--navy); border: 3px solid var(--white);
+    outline: 2px solid var(--navy);
+    flex-shrink: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .timeline-dot svg { width: 16px; height: 16px; fill: var(--gold); }
+
+  .timeline-body { flex: 1; padding-top: 6px; }
+
+  .timeline-date {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 0.3rem;
+  }
+
+  .timeline-title {
+    font-size: 18px; font-weight: 700; color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-org {
+    font-size: 13px; color: var(--gray-500); margin-bottom: 0.8rem;
+    font-style: italic;
+  }
+
+  .timeline-body ul { list-style: none; }
+
+  .timeline-body ul li {
+    font-size: 14px; color: var(--gray-700);
+    padding: 4px 0 4px 1.2rem; position: relative; line-height: 1.5;
+  }
+
+  .timeline-body ul li::before {
+    content: ''; position: absolute; left: 0; top: 12px;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .pub-box {
+    margin-top: 0.8rem; padding: 1rem 1.2rem;
+    background: var(--gray-100);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .pub-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem;
+  }
+
+  .pub-box p {
+    font-size: 13px; color: var(--gray-700); line-height: 1.6;
+  }
+
+  .pub-box strong { color: var(--navy); }
+
+  /* COMMUNITY */
+  #community {
+    background: var(--navy);
+    padding: 100px 2rem;
+  }
+
+  #community .section-title { color: var(--off-white); }
+  #community .section-eyebrow { color: var(--gold); }
+  #community .section-intro { color: rgba(253,248,239,0.58); }
+
+  .community-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  }
+
+  .community-card {
+    background: rgba(253,248,239,0.06);
+    border: 1px solid rgba(253,248,239,0.14);
+    border-radius: 4px; padding: 1.8rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .community-card.visible { opacity: 1; transform: translateY(0); }
+  .community-card:hover { background: rgba(253,248,239,0.1); }
+
+  .community-card-year {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+  }
+
+  .community-card h3 {
+    font-size: 16px; font-weight: 700; color: var(--off-white);
+    margin-bottom: 0.4rem; line-height: 1.3;
+  }
+
+  .community-card p {
+    font-size: 13px; color: rgba(253,248,239,0.58); line-height: 1.6;
+  }
+
+  /* MEMBERSHIPS */
+  #memberships {
+    background: var(--off-white); padding: 100px 2rem;
+  }
+
+  .memberships-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  }
+
+  .membership-item {
+    background: var(--white);
+    border-top: 3px solid var(--teal);
+    padding: 1.4rem;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .membership-item.visible { opacity: 1; transform: translateY(0); }
+
+  .membership-item h3 {
+    font-size: 13px; font-weight: 700; color: var(--navy);
+    line-height: 1.4; margin-bottom: 4px;
+  }
+
+  .membership-item span {
+    font-size: 12px; color: var(--gray-500);
+  }
+
+  /* EDUCATION */
+  #education {
+    background: var(--white); padding: 100px 2rem;
+  }
+
+  .edu-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .edu-card {
+    border: 1.5px solid var(--gray-300);
+    border-radius: 4px; overflow: hidden;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .edu-card.visible { opacity: 1; transform: translateY(0); }
+
+  .edu-card-header {
+    background: var(--navy); padding: 1.2rem 1.5rem;
+  }
+
+  .edu-card-header h3 {
+    font-size: 16px; font-weight: 700; color: var(--off-white); margin-bottom: 2px;
+  }
+
+  .edu-card-header span {
+    font-size: 12px; color: rgba(253,248,239,0.58);
+  }
+
+  .edu-card-body { padding: 1.2rem 1.5rem; }
+
+  .edu-degree {
+    font-size: 15px; font-weight: 700; color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .edu-detail {
+    font-size: 13px; color: var(--gray-500); line-height: 1.5;
+  }
+
+  .honors-strip {
+    background: var(--gray-100);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .honors-strip h3 {
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--navy); margin-bottom: 0.6rem;
+  }
+
+  .honors-list {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+
+  .honor-pill {
+    display: inline-block;
+    padding: 4px 12px; border-radius: 2px;
+    background: var(--white); border: 1px solid var(--gray-300);
+    font-size: 12px; color: var(--navy);
+  }
+
+  .certs-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+  }
+
+  .cert-card {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--gray-300); border-radius: 3px;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .cert-card.visible { opacity: 1; transform: translateY(0); }
+
+  .cert-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0; margin-top: 5px;
+  }
+
+  .cert-card h4 { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .cert-card span { font-size: 12px; color: var(--gray-500); }
+
+  /* CONTACT */
+  #contact {
+    background: linear-gradient(135deg, #C49090 0%, #B07880 100%);
+    padding: 100px 2rem; text-align: center;
+  }
+
+  #contact .section-eyebrow { color: #82405a; }
+  #contact .section-title { color: var(--white); }
+
+  .contact-tagline {
+    font-size: 18px; color: rgba(255,255,255,0.78);
+    font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto;
+    margin-bottom: 3rem;
+  }
+
+  .contact-cards {
+    display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 4px; padding: 1.5rem 2rem;
+    min-width: 180px; text-align: center;
+  }
+
+  .contact-card-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #82405a; margin-bottom: 0.5rem;
+  }
+
+  .contact-card-value {
+    font-size: 14px; color: var(--white); font-weight: 500;
+    text-decoration: none;
+  }
+
+  .contact-card-value:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    border-top: 3px solid var(--gold);
+    padding: 2rem; text-align: center;
+  }
+
+  footer p { font-size: 12px; color: rgba(253,248,239,0.38); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollDrop {
+    0% { top: -100%; }
+    100% { top: 100%; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-content { text-align: center; }
+    .hero-stats { justify-content: center; }
+    .hero-cta { justify-content: center; }
+    .hero-photo img { height: 420px; max-width: 340px; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .rotations-grid { grid-template-columns: repeat(2, 1fr); }
+    .community-grid { grid-template-columns: 1fr; }
+    .memberships-grid { grid-template-columns: repeat(2, 1fr); }
+    .edu-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    nav ul { display: none; }
+    nav { padding: 0 1.25rem; }
+    .rotations-grid { grid-template-columns: 1fr; }
+    .memberships-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+    .contact-cards { flex-direction: column; align-items: center; }
+
+    .rotation-card,
+    .timeline-item,
+    .community-card,
+    .membership-item,
+    .edu-card,
+    .cert-card,
+    .pillar {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-cross"></div>
+    <div>
+      <div class="nav-name">Gabrielle Barnett Soyebo</div>
+      <div class="nav-credential">MD Candidate · Ross University · 2026</div>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#clinical">Clinical</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-inner">
+
+    <!-- Left: text content -->
+    <div class="hero-content">
+      <div class="hero-badge">Family Medicine · MD Candidate 2026</div>
+      <h1>Compassionate care.<br><em>Exceptional medicine.</em></h1>
+      <p class="hero-sub">A future Family Medicine physician committed to whole-person care, health equity, and building lasting relationships with patients and communities across Texas and beyond.</p>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Clinical Rotations</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">5+</div>
+          <div class="hero-stat-label">Years Research</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Community Orgs</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">Countries Served</div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#clinical" class="btn btn-primary">View clinical experience</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+
+    <!-- Right: photo -->
+    <div class="hero-photo">
+      <img src="gabrielle_photo.jpg" alt="Gabrielle Barnett Soyebo, MD Candidate" />
+    </div>
+
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="section-wrap">
+    <blockquote>
+      "Medicine is not just a science — it is an art of meeting people where they are, earning their trust, and walking alongside them toward health. That is the physician I am becoming."
+      <cite>— Gabrielle Barnett Soyebo, MD Candidate</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-eyebrow">About Gabrielle</div>
+      <h2 class="section-title">A physician built for the whole patient.</h2>
+      <div class="section-rule"></div>
+      <p>Gabrielle Barnett Soyebo is a fourth-year MD candidate at Ross University School of Medicine, completing her clinical training at Trinity Health Oakland. With a background in <strong>biochemistry from Baylor University</strong> and years of pre-clinical research experience, she brings scientific rigor and genuine warmth to every patient encounter.</p>
+      <p>Having lived and served in <strong>Barbados, Texas, Michigan, and Florida</strong>, Gabrielle brings a uniquely broad perspective to primary care — one shaped by international healthcare settings, underserved communities, and a deep personal commitment to <strong>health equity and reproductive justice</strong>.</p>
+      <p>Her clinical interests center on Family Medicine's core promise: comprehensive, continuous, relationship-based care for individuals and families across the full lifespan — with particular passion for <strong>women's health, pediatrics, and chronic disease prevention</strong>.</p>
+    </div>
+    <div class="about-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+        </div>
+        <div>
+          <h3>Patient-centered care</h3>
+          <p>Every clinical decision begins with listening — to the patient's story, values, and goals for their health.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div>
+          <h3>Community health equity</h3>
+          <p>From Barbados to Houston to Oakland — a consistent commitment to serving underserved and underrepresented populations.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <div>
+          <h3>Mentorship &amp; education</h3>
+          <p>An active academic coach and mentor for pre-medical students, translating her own journey into guidance for the next generation.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <h3>Evidence-based practice</h3>
+          <p>A published research contributor with hands-on experience in data integrity, assessment methodology, and clinical investigation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL -->
+<section id="clinical">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Clinical Training</div>
+    <h2 class="section-title">Trained across the full spectrum of care.</h2>
+    <div class="section-rule"></div>
+    <p class="section-intro">Core and elective clerkships completed at Trinity Health Oakland and affiliated sites, Nov 2024 – Present. Currently MS4 at Ross University School of Medicine.</p>
+
+    <div class="rotations-grid">
+      <div class="rotation-card">
+        <div class="rotation-specialty">Primary Care</div>
+        <div class="rotation-title">Family Medicine</div>
+        <div class="rotation-desc">Managed acute and chronic conditions across the lifespan; conducted well visits, preventive screenings, and evidence-based counseling. Served as Student Liaison.</div>
+        <div class="rotation-badge">Student Liaison</div>
+      </div>
+      <div class="rotation-card">
+        <div class="rotation-specialty">Women's Health</div>
+        <div class="rotation-title">Obstetrics &amp; Gynecology</div>
+        <div class="rotation-desc">Provided prenatal care, assisted with deliveries, performed pelvic examinations, and delivered patient education on reproductive health. Served as Student Liaison.</div>
+        <div class="rotation-badge">Student Liaison</div>
+      </div>
+      <div class="rotation-card">
+        <div class="rotation-specialty">Hospital Medicine</div>
+        <div class="rotation-title">Internal Medicine</div>
+        <div class="rotation-desc">Performed H&amp;Ps, formulated differential diagnoses, and participated in daily attending rounds with progressive patient care responsibility. Served as Student Liaison.</div>
+        <div class="rotation-badge">Student Liaison</div>
+      </div>
+      <div class="rotation-card">
+        <div class="rotation-specialty">Child Health</div>
+        <div class="rotation-title">Pediatrics</div>
+        <div class="rotation-desc">Assisted in well-child visits, immunization counseling, and acute care management for pediatric patients across developmental stages.</div>
+      </div>
+      <div class="rotation-card">
+        <div class="rotation-specialty">Behavioral Health</div>
+        <div class="rotation-title">Psychiatry</div>
+        <div class="rotation-desc">Conducted mental status examinations, participated in individual therapy sessions, and contributed to inpatient medication management discussions.</div>
+      </div>
+      <div class="rotation-card">
+        <div class="rotation-specialty">Surgical Care</div>
+        <div class="rotation-title">Surgery</div>
+        <div class="rotation-desc">Assisted in the operating room, performed post-operative checks, and practiced sterile technique and wound care management.</div>
+      </div>
+    </div>
+
+    <div style="background: var(--white); border-left: 4px solid var(--teal); border-radius: 0 4px 4px 0; padding: 1.4rem 1.8rem;">
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem;">International Clinical Experience · Barbados 2022–2023</div>
+      <p style="font-size: 15px; color: var(--gray-700); line-height: 1.6;">Volunteered at the <strong>Barbados Fertility Centre</strong> (patient intake, triage, and care planning) and served at the <strong>Barbados Community Health Fair</strong> (chronic disease screening for hypertension and diabetes). Participated in <strong>RUSM Pediatrics Kids Day</strong>, delivering health education to children and families on preventable illness and healthy development.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Research &amp; Scholarship</div>
+    <h2 class="section-title">Science in service of patients.</h2>
+    <div class="section-rule"></div>
+    <p class="section-intro">Published researcher with experience in pediatric neurodevelopment, cognitive assessment, and community-based behavioral science.</p>
+
+    <div class="research-timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-date">Summer 2019 – Fall 2021</div>
+          <div class="timeline-title">Research Assistant</div>
+          <div class="timeline-org">Children's Learning Institute · McGovern Medical School, UTHealth · Houston, TX</div>
+          <ul>
+            <li>Administered cognitive, social, and emotional assessments with pediatric patients and caregivers using a standardized battery of psychological and educational evaluations.</li>
+            <li>Led coding training for parent-child interaction videos; collaborated weekly with the CLI team to refine data collection methodology.</li>
+            <li>Designed data collection instruments, validated incoming data for accuracy and integrity, and maintained structured database records.</li>
+          </ul>
+          <div class="pub-box">
+            <div class="pub-label">Peer-Reviewed Publication</div>
+            <p>Zucker, T., McCallum, C., Yeomans-Maldonado, G., Assel, M., Elias, C., <strong>Barnett, G.</strong>, Hirlas, I., Hill, A. (October 2021). Feasibility of Behavior Change Techniques to Increase Parent Involvement in STEM with Young Children Experiencing Poverty. <em>NSF Annual PI Meeting, Advancing Informal STEM Learning Project Showcase.</em></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-date">Spring 2021 – Fall 2021</div>
+          <div class="timeline-title">Clinic Assistant</div>
+          <div class="timeline-org">Dan L. Duncan Children's Neurodevelopmental Clinic · Houston, TX</div>
+          <ul>
+            <li>Delivered individualized support to pediatric patients and families, contributing to improved patient satisfaction and care outcomes.</li>
+            <li>Identified and implemented workflow improvements in clinic data management, presenting recommendations directly to supervising physicians.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Community &amp; Advocacy</div>
+    <h2 class="section-title">Medicine extends beyond the clinic.</h2>
+    <div class="section-rule" style="background: var(--gold);"></div>
+    <p class="section-intro">From board leadership to medical missions, a lifelong pattern of showing up for communities.</p>
+
+    <div class="community-grid">
+      <div class="community-card">
+        <div class="community-card-year">2021 – 2023</div>
+        <h3>Esperanza de Tejas — Board Member</h3>
+        <p>Serving on the board of a Houston-based nonprofit supporting the Latinx community through health access, education, and advocacy initiatives.</p>
+      </div>
+      <div class="community-card">
+        <div class="community-card-year">2025</div>
+        <h3>AMSA Reproductive Health Mentorship Sprint</h3>
+        <p>Competitively selected for an interdisciplinary program focused on reproductive justice, abortion care, and health equity policy advocacy.</p>
+      </div>
+      <div class="community-card">
+        <div class="community-card-year">2025</div>
+        <h3>Planned Parenthood — Volunteer</h3>
+        <p>Providing community support and patient navigation services for reproductive healthcare access.</p>
+      </div>
+      <div class="community-card">
+        <div class="community-card-year">2022 – 2023</div>
+        <h3>Barbados Community Health Fair</h3>
+        <p>Performed chronic disease screenings (hypertension, diabetes) and connected underserved Barbadian residents to local health resources.</p>
+      </div>
+      <div class="community-card">
+        <div class="community-card-year">2018 – 2020</div>
+        <h3>Texas Woman's Hospital NICU — Cuddle Care</h3>
+        <p>Served as a therapeutic touch volunteer for premature and medically fragile neonates in a Level IV NICU.</p>
+      </div>
+      <div class="community-card">
+        <div class="community-card-year">2010 · 2015 · 2022 · 2025</div>
+        <h3>Medical Missions</h3>
+        <p>Costa Rica Outward Bound and Awaken: Uganda — international service rooted in a conviction that healthcare is a human right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIPS -->
+<section id="memberships">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Professional Memberships</div>
+    <h2 class="section-title">Connected to the profession.</h2>
+    <div class="section-rule"></div>
+    <div class="memberships-grid">
+      <div class="membership-item">
+        <h3>American Academy of Family Physicians (AAFP)</h3>
+        <span>Student Member</span>
+      </div>
+      <div class="membership-item">
+        <h3>Student National Medical Association (SNMA)</h3>
+        <span>External Affairs Committee Member</span>
+      </div>
+      <div class="membership-item">
+        <h3>American Medical Student Association (AMSA)</h3>
+        <span>Member</span>
+      </div>
+      <div class="membership-item">
+        <h3>American College of OB/GYN (ACOG)</h3>
+        <span>Medical Student Member</span>
+      </div>
+      <div class="membership-item">
+        <h3>American Academy of Pediatrics (AAP/SOPT)</h3>
+        <span>Section on Pediatric Trainees — Member</span>
+      </div>
+      <div class="membership-item">
+        <h3>RUSM OB/GYN Interest Group</h3>
+        <span>Social Media Chair (2021) · Member</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Education &amp; Credentials</div>
+    <h2 class="section-title">A foundation built to last.</h2>
+    <div class="section-rule"></div>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-card-header">
+          <h3>Ross University School of Medicine</h3>
+          <span>St. Michael, Barbados · Jan 2022 – Nov 2026</span>
+        </div>
+        <div class="edu-card-body">
+          <div class="edu-degree">Doctor of Medicine (MD)</div>
+          <div class="edu-detail">Clinical training at Trinity Health Oakland · Anticipated graduation November 2026</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-header">
+          <h3>Baylor University</h3>
+          <span>Waco, TX · Aug 2013 – Aug 2017</span>
+        </div>
+        <div class="edu-card-body">
+          <div class="edu-degree">B.S. Biochemistry · Minor: Spanish</div>
+          <div class="edu-detail">Honors College · Baylor Interdisciplinary Core (BIC)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="honors-strip">
+      <h3>Honors &amp; Academic Recognition</h3>
+      <div class="honors-list">
+        <span class="honor-pill">Dean's Academic Honor List</span>
+        <span class="honor-pill">President's Gold Award Scholar</span>
+        <span class="honor-pill">Alpha Lambda Delta Honor Society</span>
+        <span class="honor-pill">Tri-Beta Biology Honor Society</span>
+        <span class="honor-pill">Honors College — BIC</span>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom: 1rem;">Languages</div>
+    <p style="font-size: 15px; color: var(--gray-700); margin-bottom: 2.5rem;">English (native) &nbsp;·&nbsp; Spanish (conversational) — an asset for serving Texas's growing Spanish-speaking patient population.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Contact</div>
+    <h2 class="section-title">Let's connect.</h2>
+    <p class="contact-tagline">Seeking Family Medicine residency in Texas and the Gulf South. Available for interviews, away rotations, and correspondence.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-label">Email</div>
+        <a href="mailto:DrSoyebo@gmail.com" class="contact-card-value">DrSoyebo@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-label">Location</div>
+        <div class="contact-card-value">Houston, TX 77070</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-label">Specialty Interest</div>
+        <div class="contact-card-value">Family Medicine</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Gabrielle Barnett Soyebo, MD Candidate &nbsp;·&nbsp; Ross University School of Medicine &nbsp;·&nbsp; Houston, TX</p>
+</footer>
+
+<script>
+  const items = document.querySelectorAll(
+    '.pillar, .rotation-card, .timeline-item, .community-card, .membership-item, .edu-card, .cert-card'
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  items.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
